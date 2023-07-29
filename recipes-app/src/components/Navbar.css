@@ -1,0 +1,9 @@
+a.brand {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a.brand:hover {
+  color: rgba(231, 220, 220, 0.671);
+}
