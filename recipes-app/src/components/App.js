@@ -3,7 +3,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "../pages/home/Home";
 import Create from "../pages/create/Create";
-import Details, { loaderDetails } from "../pages/details/Details";
+import Details from "../pages/details/Details";
+// import { loaderDetails } from "../pages/details/Details";
 import Search from "../pages/search/Search";
 
 const App = () => {
@@ -27,7 +28,7 @@ const App = () => {
         {
           path: "details/:id",
           element: <Details />,
-          loader: loaderDetails,
+          // loader: loaderDetails,
         },
         {
           path: "/search",
