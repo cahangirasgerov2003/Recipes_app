@@ -104,6 +104,51 @@
       "resim": "https://i.nefisyemektarifleri.com/2014/11/ispanakli-corba-tarifi-foto.jpg",
       "url": "https://www.nefisyemektarifleri.com/ispanakli-corba-tarifi/",
       "id": 7
+    },
+    {
+      "baslik": "Beyti Kebabı",
+      "aciklama": "2-4 Kişilik, 30dk Hazırlık, 30dk Pişirme",
+      "malzemeler": [
+        "400g kıyma",
+        "1-2 adet yufka",
+        "1 adet yumurta",
+        "Yarım çay bardağı galeta unu",
+        "1 diş sarımsak"
+      ],
+      "hazirlanisi": "İlk olarak beytimizin köftesini hazırlıyoruz. Soğan, sarımsak ve yumurtayı rondoya alarak çekelim. Rondo kullanmak istemezseniz soğan ve sarımsağı rendeleyebilirsiniz.\nKöfte için rondoda çektiğimiz malzemeleri, kıyma, galeta unu ve baharatları derince bir kaba alarak köfte harcını güzelce yoğuralım.",
+      "resim": "https://i.nefisyemektarifleri.com/2018/01/12/beyti-kebabi-nasil-yapilir-videolu-tarif.jpg",
+      "url": "https://www.nefisyemektarifleri.com/video/beyti-kebabi-nasil-yapilir-videolu-tarif/",
+      "id": 8
+    },
+    {
+      "baslik": "Fırında Levrek",
+      "aciklama": "6-8 Kişilik, 15dk Hazırlık, 45dk Pişirme",
+      "malzemeler": [
+        "Orta boy levrek (kişi sayısına göre sayıyı ayarlayabilirsiniz)",
+        "1  adet kuru soğan (2 balık için 1 tane yetiyor)",
+        "1-2 adet domates",
+        "1 adet limon",
+        "Yarım çay bardağı zeytinyağı"
+      ],
+      "hazirlanisi": "Levrekleri temizletip yıkayalım.\n Fırın tepsisine yağlı kağıt sererek levrekleri üzerine yerleştirelim.\n Balıkların içine ve üzerine azar azar zeytinyağı gezdirelim. Tuz ve karabiber serpelim.",
+      "resim": "https://i.nefisyemektarifleri.com/2018/11/02/firinda-levrek-tarifi-11.jpg",
+      "url": "https://www.nefisyemektarifleri.com/firinda-levrek-tarifi/",
+      "id": 9
+    },
+    {
+      "baslik": "Kabak Spagetti ",
+      "aciklama": "1-2 Kişilik, 10dk Hazırlık, 20dk Pişirme",
+      "malzemeler": [
+        "4 adet orta boy kabak",
+        "4 yemek kaşığı zeytinyağı",
+        "3 yemek kaşığı sıcak su",
+        "2 yemek kaşığı zeytinyağı",
+        "Kaşar peyniri (isteğe bağlı)"
+      ],
+      "hazirlanisi": "Patlıcanların kabuklarını alacalı olarak soyalım ve yarım parmak genişliğinde dilimleyelim.Ardından su dolu kabın içerisine tuz ekleyip karıştıralım ve patlıcanları acısının çıkmKabaklarımızı soyduktan sonra, salatalık-patates soyacağı ile uzun uzun şeritler çıkarıyoruz. Fotoğraftan net anlaşılıyor veya bıçak yardımı ile ince ince şeritler çıkarabilirsiniz.\nTavada yüksek ateşte kabaklar hafif kızarmaya başlayana kadar pişiriyoruz. Tuzunu da ekleyip altını kısmadan sürekli kavuracağız. Hafif bir su salıp çekiyor.ası için suya alarak 20 dakika bekletelim. Kabuklarını soyduğumuz soğanları da daire şeklinde dilimleyelim.",
+      "resim": "https://i.nefisyemektarifleri.com/2018/10/11/kabak-spagetti-10.jpg",
+      "url": "https://www.nefisyemektarifleri.com/kabak-spagetti/",
+      "id": 10
     }
   ]
 }

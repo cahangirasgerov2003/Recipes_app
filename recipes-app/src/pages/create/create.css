@@ -8,7 +8,8 @@ form label {
 }
 
 form input[type="text"],
-form textarea.myTextarea {
-  color: rgb(58, 141, 137);
-  font-size: 16px;
+form input::placeholder,
+form textarea {
+  color: rgb(58, 141, 137) !important;
+  font-size: 16px !important;
 }

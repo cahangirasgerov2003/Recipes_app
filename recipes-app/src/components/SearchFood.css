@@ -1,0 +1,8 @@
+#searchInput {
+  background-color: rgba(16, 151, 175, 0.24);
+  color: white;
+}
+
+input#searchInput::placeholder {
+  color: white !important;
+}

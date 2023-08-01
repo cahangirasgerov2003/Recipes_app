@@ -24,7 +24,8 @@ const useFetch = (url, method = "GET") => {
           if (!response.ok) {
             throw new Error(response.statusText);
           }
-          return response.json();
+          const data = response.json();
+          return data;
         })
         .then((response) => {
           setData(response);
@@ -35,13 +36,14 @@ const useFetch = (url, method = "GET") => {
           setError(err.message);
         });
     }
-    if (method === "POST") {
+    if (method === "POST" && typeRequest) {
       fetch(url, typeRequest)
         .then((response) => {
           if (!response.ok) {
             throw new Error(response.statusText);
           }
-          return response.json();
+          const data = response.json();
+          return data;
         })
         .then((response) => {
           setData(response);

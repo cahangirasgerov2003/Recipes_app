@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, {  useEffect, useRef, useState } from "react";
 import "./create.css";
 import useFetch from "../../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -10,23 +11,28 @@ const Create = () => {
   const [url, setUrl] = useState("");
   const [ingredient, setIngredient] = useState(null);
   const [ingredients, setIngredients] = useState([]);
-
   const refIngridientInput = useRef(null);
-
-  const { postData } = useFetch("http://localhost:3000/tarifler","POST") // {postData};
+  const navigate = useNavigate();
   
+  const { data, postData } = useFetch("http://localhost:3000/tarifler", "POST") // {postData};
+
   const handleFoodInformation = (e) => {
     e.preventDefault();
-    postData({baslik:title,aciklama:description,malzemeler:ingredients,hazirlanisi:preperation,resim:picture,url});
-    setTitle("");    
-    setDescription("");
-    setIngredients([]);
-    setPreperation("");
-    setPicture("");
-    setUrl("");
+    if(title && description && ingredients.length >0 && preperation && url && picture?.includes(".jpg") ){
+      postData({baslik:title,aciklama:description,malzemeler:ingredients,hazirlanisi:preperation,resim:picture,url});
+    }else{
+      alert("All tabs are required to be filled !");
+    }
+    // setTimeout(()=>{
+    //   setTitle("");    
+    //   setDescription("");
+    //   setIngredients([]);
+    //   setPreperation("");
+    //   setPicture("");
+    //   setUrl("");
+    // },1000);
     // setIngredient("");
   };
-
 
   const handleAddIngredients = (e) =>{
     e.preventDefault();
@@ -38,6 +44,13 @@ const Create = () => {
     refIngridientInput.current.focus();
     refIngridientInput.current.value="";
   }
+
+  useEffect(()=>{
+    if(data){
+      alert("The information was successfully saved to the database !");
+      navigate("/");
+    }
+  },[data, navigate]);
 
   return (
     <div className="card mt-4">
@@ -83,7 +96,7 @@ const Create = () => {
               })}
               </ul></label>
             <div className="input-group">
-              <input ref={refIngridientInput} type="text" className="form-control" defaultValue="500 gram kıyma" id="ingredients" name="ingredients" onChange={(e)=>{
+              <input ref={refIngridientInput} type="text" className="form-control" placeholder="500 gram kıyma" id="ingredients" name="ingredients" onChange={(e)=>{
                  setIngredient(e.target.value);
               }} />
               <button className="btn btn-success" onClick={handleAddIngredients}>+</button>
