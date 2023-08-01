@@ -31,7 +31,7 @@ const Details = () => {
       <div className="col-4">
         {!error && <img
           className="w-100"
-          src={`/image/${selectedFood?.resim}`}
+          src={selectedFood?.id <=6 ?`/image/${selectedFood?.resim}`:selectedFood?.resim}
           alt={selectedFood?.basliq}
         ></img>}
       </div>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./create.css";
+import useFetch from "../../hooks/useFetch";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -7,15 +8,36 @@ const Create = () => {
   const [preperation, setPreperation] = useState("");
   const [picture, setPicture] = useState("");
   const [url, setUrl] = useState("");
+  const [ingredient, setIngredient] = useState(null);
+  const [ingredients, setIngredients] = useState([]);
 
+  const refIngridientInput = useRef(null);
+
+  const { postData } = useFetch("http://localhost:3000/tarifler","POST") // {postData};
+  
   const handleFoodInformation = (e) => {
     e.preventDefault();
+    postData({baslik:title,aciklama:description,malzemeler:ingredients,hazirlanisi:preperation,resim:picture,url});
     setTitle("");    
     setDescription("");
+    setIngredients([]);
     setPreperation("");
     setPicture("");
     setUrl("");
+    // setIngredient("");
   };
+
+
+  const handleAddIngredients = (e) =>{
+    e.preventDefault();
+    if(ingredient?.trim() && !ingredients.includes(ingredient)){
+       setIngredients((prevIngredients)=>{
+           return [...prevIngredients, ingredient];
+       });
+    }
+    refIngridientInput.current.focus();
+    refIngridientInput.current.value="";
+  }
 
   return (
     <div className="card mt-4">
@@ -51,6 +73,21 @@ const Create = () => {
               defaultValue="4-6 kişilik, 20dk Hazırlık, 1 saat 15dk Pişirme"
               id="description"
             />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="ingredients" className="form-label">Ingredients : <ul className="mt-3">
+              {ingredients.map((item,index)=>{
+                return (
+                  <li key={index}>{item}</li>
+                )
+              })}
+              </ul></label>
+            <div className="input-group">
+              <input ref={refIngridientInput} type="text" className="form-control" defaultValue="500 gram kıyma" id="ingredients" name="ingredients" onChange={(e)=>{
+                 setIngredient(e.target.value);
+              }} />
+              <button className="btn btn-success" onClick={handleAddIngredients}>+</button>
+             </div>
           </div>
           <div className="mb-3">
             <label htmlFor="preparation" className="form-label">

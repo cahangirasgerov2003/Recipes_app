@@ -15,7 +15,6 @@ const Home = () => {
   // },[]);
 
   const { data: foods, loading, error } = useFetch("http://localhost:3000/tarifler");
-  console.log(error);
   return (
     <div className="row mt-3">
       {loading && (

@@ -1,4 +1,4 @@
-{ 
+{
   "tarifler": [
     {
       "id": "1",
@@ -46,7 +46,7 @@
       "url": "https://www.nefisyemektarifleri.com/tavuklu-sultan-kebabi-tarifi/"
     },
     {
-      "id":4,
+      "id": 4,
       "baslik": "Bayram Tatlısı",
       "aciklama": "16-8 Kişilik, 30dk Hazırlık, 1 saat 15dk Pişirme",
       "malzemeler": [
@@ -61,7 +61,7 @@
       "url": "https://www.nefisyemektarifleri.com/bayram-tatlisi-istanbul-tatlisi-videolu/"
     },
     {
-      "id":5,
+      "id": 5,
       "baslik": "Kolay Çikolatalı Pasta",
       "aciklama": "4-6 Kişilik, 30dk Hazırlık, 25dk Pişirme",
       "malzemeler": [
@@ -76,7 +76,7 @@
       "url": "https://www.nefisyemektarifleri.com/video/kolay-cikolatali-pasta/"
     },
     {
-      "id":6,
+      "id": 6,
       "baslik": "Tavuk Burger",
       "aciklama": "8-10 Kişilik, 30dk Hazırlık, 25dk Pişirme",
       "malzemeler": [
@@ -89,6 +89,21 @@
       "hazirlanisi": "30-40 dk sonunda mayası gelen hamuru un serilmiş tezgaha alıp, 8 eşit parçaya ayıralım.",
       "resim": "tavuk-burger.jpeg",
       "url": "https://www.nefisyemektarifleri.com/ton-balikli-mayonezli-sandvic-tarifi/"
+    },
+    {
+      "baslik": "Ispanaklı Çorba",
+      "aciklama": "4-6 Kişilik, 10dk Hazırlık, 20dk Pişirme",
+      "malzemeler": [
+        "150g ıspanak",
+        "4 yemek kaşığı yoğurt",
+        "2 yemek kaşığı un",
+        "1 yumurta sarısı",
+        "Yarım Türk kahvesi fincanı tel şehriye"
+      ],
+      "hazirlanisi": "Öncelikle ıspanaklar doğranarak 1 lt suda 5 dk kadar haşlanır.\nYoğurt, un ve yumurta çırpılarak ıspanağın haşlama suyundan 1-2 kepçe eklenerek hızlıca çırpılır, böylece terbiye ılınmış olur.  Yoğurdun kesmemesi için bu işlemi mutlaka yapmalısınız.",
+      "resim": "https://i.nefisyemektarifleri.com/2014/11/ispanakli-corba-tarifi-foto.jpg",
+      "url": "https://www.nefisyemektarifleri.com/ispanakli-corba-tarifi/",
+      "id": 7
     }
   ]
 }
