@@ -12,7 +12,11 @@ const ProductDetails = ({ food }) => {
       ></img>
       <div className="card-body foodInfo">
         <h5 className="card-title">{food.baslik}</h5>
-        <p className="description">{food.aciklama}</p>
+        <p className="description">
+          {food.aciklama.length > 40
+            ? food.aciklama.slice(0, 40) + "..."
+            : food.aciklama}
+        </p>
         <Link
           to={`/details/${food.id}`}
           className="btn text-white"

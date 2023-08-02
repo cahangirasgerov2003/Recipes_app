@@ -1,16 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+import mainColorReducer from "../reducers/mainColorReducer";
 
 export const MainColorContext = createContext();
 
 export const MainColorContextProvider = ({ children }) => {
-  const [color, setColor] = useState(null);
+  const [state, dispatch] = useReducer(mainColorReducer, {
+    color: null,
+  });
+
   const changeMainColor = (value) => {
-    setColor(value);
+    dispatch({
+      type: "SETCOLOR",
+      value,
+    });
   };
+
   return (
     <MainColorContext.Provider
       value={{
-        mainColor: color ? color : "#2e1b18",
+        mainColor: state.color ? state.color : "#1d867f",
         changeMainColor,
       }}
     >
