@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./details.css";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { MainColorContext } from "../../contexts/MainColorContext";
 // import { useLoaderData } from 'react-router-dom';
 
 const Details = () => {
@@ -11,6 +12,8 @@ const Details = () => {
   const url = `http://localhost:3000/tarifler/${id}`;
 
   const { data: selectedFood, loading, error } = useFetch(url);
+
+  const {mainColor} = useContext(MainColorContext);
 
   // useEffect(()=>{
   //   fetch(url).then((response)=>{
@@ -49,7 +52,8 @@ const Details = () => {
           <h6>{selectedFood?.hazirlanisi}</h6>
           <a
             href={selectedFood?.url}
-            className="btn btn-outline-primary mt-1"
+            className="mt-1 btn text-white"
+            style={{ backgroundColor: mainColor }}
             target="blank"
           >
             Video summary

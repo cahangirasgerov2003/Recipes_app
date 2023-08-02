@@ -2,11 +2,17 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import SearchFood from "./SearchFood";
+import { useContext } from "react";
+import { MainColorContext } from "../contexts/MainColorContext";
 
 const Navbar = () => {
+  const { mainColor } = useContext(MainColorContext);
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+      <nav
+        className={`navbar navbar-expand-lg navbar-dark`}
+        style={{ backgroundColor: mainColor }}
+      >
         <div className="container">
           <Link className="Navbar-brand brand me-3" to="/">
             Food Recipes

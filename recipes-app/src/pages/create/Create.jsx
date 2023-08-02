@@ -1,7 +1,8 @@
-import React, {  useEffect, useRef, useState } from "react";
+import React, {  useContext, useEffect, useRef, useState } from "react";
 import "./create.css";
 import useFetch from "../../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import {MainColorContext} from "../../contexts/MainColorContext"
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -13,6 +14,8 @@ const Create = () => {
   const [ingredients, setIngredients] = useState([]);
   const refIngridientInput = useRef(null);
   const navigate = useNavigate();
+
+  const {mainColor} = useContext(MainColorContext);
   
   const { data, postData } = useFetch("http://localhost:3000/tarifler", "POST") // {postData};
 
@@ -99,7 +102,7 @@ const Create = () => {
               <input ref={refIngridientInput} type="text" className="form-control" placeholder="500 gram kıyma" id="ingredients" name="ingredients" onChange={(e)=>{
                  setIngredient(e.target.value);
               }} />
-              <button className="btn btn-success" onClick={handleAddIngredients}>+</button>
+              <button className="btn text-white" onClick={handleAddIngredients} style={{ backgroundColor: mainColor }}>+</button>
              </div>
           </div>
           <div className="mb-3">
@@ -147,7 +150,7 @@ const Create = () => {
             />
           </div>
 
-         <button type="submit" className="btn btn-outline-primary w-100">Save</button>
+         <button type="submit" className="btn w-100 text-white" style={{ backgroundColor: mainColor }}>Save</button>
 
         </form>
       </div>
