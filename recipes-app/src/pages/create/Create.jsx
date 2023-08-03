@@ -72,7 +72,6 @@ const Create = () => {
               name="baslik"
               defaultValue="Halka Kebabı"
               id="baslik"
-              
             />
           </div>
           <div className="mb-3">

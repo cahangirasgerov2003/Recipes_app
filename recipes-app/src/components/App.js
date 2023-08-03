@@ -4,14 +4,17 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/home/Home";
 import Create from "../pages/create/Create";
 import Details from "../pages/details/Details";
+import { NotFound } from "./NotFound";
 // import { loaderDetails } from "../pages/details/Details";
 import Search from "../pages/search/Search";
+import { GlobalErrors } from "./GlobalErrors";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
+      errorElement: <GlobalErrors />,
       children: [
         {
           index: true,
@@ -34,10 +37,18 @@ const App = () => {
           path: "/search",
           element: <Search />,
         },
+        {
+          path: "*",
+          element: <NotFound />,
+        },
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
 };
 
 export default App;

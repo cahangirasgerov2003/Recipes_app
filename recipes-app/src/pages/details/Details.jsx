@@ -13,7 +13,7 @@ const Details = () => {
 
   const { data: selectedFood, loading, error } = useFetch(url);
 
-  const {mainColor} = useContext(MainColorContext);
+  const {mainColor, mode} = useContext(MainColorContext);
 
   // useEffect(()=>{
   //   fetch(url).then((response)=>{
@@ -30,7 +30,7 @@ const Details = () => {
           <i className="fas fa-circle-notch fa-spin loadingElement"></i>
         </div>
       )}
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error && <div className="alert alert-danger">{`${error} !`}</div>}
       <div className="col-4">
         {!error && <img
           className="w-100"
@@ -38,17 +38,17 @@ const Details = () => {
           alt={selectedFood?.basliq}
         ></img>}
       </div>
-      <div className="col-8">
+      <div className={`col-8 text-${mode === "dark" ? "white" : "dark"}`}>
         <h5 className="card-title">{selectedFood?.baslik}</h5>
-        <p className="description">{selectedFood?.aciklama}</p>
+        <p className="description mt-3">{selectedFood?.aciklama}</p>
         <ul>
           {selectedFood?.malzemeler.map((malzeme, index) => {
             return <li key={index}>{malzeme}</li>;
           })}
         </ul>
       </div>
-      {!error && (
-        <div className="col-12 mt-2">
+      {!error && selectedFood && (
+        <div className={`col-12 mt-2 text-${mode === "dark" ? "white" : "dark"}`}>
           <h6>{selectedFood?.hazirlanisi}</h6>
           <a
             href={selectedFood?.url}

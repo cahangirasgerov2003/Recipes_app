@@ -22,7 +22,7 @@ const Home = () => {
           <i className="fas fa-circle-notch fa-spin loadingElement"></i>
         </div>
       )}
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error && <div className="alert alert-danger">{`${error} !`}</div>}
       {foods && foods.map((food) => {
         return <ProductDetails food={food} key={food.id} />;
       })}

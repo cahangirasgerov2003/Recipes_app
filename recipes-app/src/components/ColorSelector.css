@@ -1,0 +1,14 @@
+.toggleMode {
+  margin-right: auto;
+}
+.toggleMode img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.borderBottomWhite {
+  border-bottom: 2px dashed white;
+}
+.borderBottomBlack {
+  border-bottom: 2px dashed black;
+}
