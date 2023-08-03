@@ -44,6 +44,7 @@ const App = () => {
       ],
     },
   ]);
+
   return (
     <div>
       <RouterProvider router={router} />
