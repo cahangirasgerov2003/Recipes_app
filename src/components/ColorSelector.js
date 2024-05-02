@@ -37,13 +37,6 @@ function ColorSelector() {
             onClick={changeMode}
           />
         </div>
-        <h3
-          className={`m-0 text-${mode === "dark" ? "white" : "dark"} ${
-            mode === "dark" ? "borderBottomWhite" : "borderBottomBlack"
-          }`}
-        >
-          Selected color : {color ? color : "#1d867f"}{" "}
-        </h3>
         <input
           type="color"
           className="form-control form-control-color ms-2"

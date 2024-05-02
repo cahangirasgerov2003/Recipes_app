@@ -1,8 +1,8 @@
-import React, {  useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./create.css";
 import useFetch from "../../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
-import {MainColorContext} from "../../contexts/MainColorContext"
+import { MainColorContext } from "../../contexts/MainColorContext";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -15,56 +15,61 @@ const Create = () => {
   const refIngridientInput = useRef(null);
   const navigate = useNavigate();
 
-  const {mainColor} = useContext(MainColorContext);
-  
-  const { data, postData } = useFetch("http://localhost:3000/tarifler", "POST") // {postData};
+  const { mainColor } = useContext(MainColorContext);
+
+  const { data, postData } = useFetch("http://localhost:3000/tarifler", "POST"); // {postData};
 
   const handleFoodInformation = (e) => {
     e.preventDefault();
-    if(title && description && ingredients.length >0 && preperation && url && picture?.includes(".jpg") ){
-      postData({baslik:title,aciklama:description,malzemeler:ingredients,hazirlanisi:preperation,resim:picture,url});
-    }else{
+    if (
+      title &&
+      description &&
+      ingredients.length > 0 &&
+      preperation &&
+      url &&
+      picture?.includes(".jpg")
+    ) {
+      postData({
+        baslik: title,
+        aciklama: description,
+        malzemeler: ingredients,
+        hazirlanisi: preperation,
+        resim: picture,
+        url,
+      });
+    } else {
       alert("All tabs are required to be filled !");
     }
-    // setTimeout(()=>{
-    //   setTitle("");    
-    //   setDescription("");
-    //   setIngredients([]);
-    //   setPreperation("");
-    //   setPicture("");
-    //   setUrl("");
-    // },1000);
-    // setIngredient("");
   };
 
-  const handleAddIngredients = (e) =>{
+  const handleAddIngredients = (e) => {
     e.preventDefault();
-    if(ingredient?.trim() && !ingredients.includes(ingredient)){
-       setIngredients((prevIngredients)=>{
-           return [...prevIngredients, ingredient];
-       });
+    if (ingredient?.trim() && !ingredients.includes(ingredient)) {
+      setIngredients((prevIngredients) => {
+        return [...prevIngredients, ingredient];
+      });
     }
     refIngridientInput.current.focus();
-    refIngridientInput.current.value="";
-  }
+    refIngridientInput.current.value = "";
+  };
 
-  useEffect(()=>{
-    if(data){
+  useEffect(() => {
+    if (data) {
       alert("The information was successfully saved to the database !");
       navigate("/");
     }
-  },[data, navigate]);
+  }, [data, navigate]);
 
   return (
-    <div className="card mt-4">
+    <div className="card mt-4 heightCreatePage">
       <div className="card-body">
         <form onSubmit={handleFoodInformation}>
-          <div className="mb-3">
+          <div className="mb-4">
             <label htmlFor="baslik" className="form-label">
               Title : {title}
             </label>
             <input
-              className="form-control"
+              className="form-control mt-2"
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
@@ -74,12 +79,12 @@ const Create = () => {
               id="baslik"
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <label htmlFor="description" className="form-label">
               Description : {description}
             </label>
             <input
-              className="form-control"
+              className="form-control mt-2"
               onChange={(e) => {
                 setDescription(e.target.value);
               }}
@@ -89,27 +94,42 @@ const Create = () => {
               id="description"
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="ingredients" className="form-label">Ingredients : <ul className="mt-3">
-              {ingredients.map((item,index)=>{
-                return (
-                  <li key={index}>{item}</li>
-                )
-              })}
-              </ul></label>
+          <div className="mb-4">
+            <label htmlFor="ingredients" className="form-label">
+              Ingredients :{" "}
+              <ul className="mt-3 mt-2">
+                {ingredients.map((item, index) => {
+                  return <li key={index}>{item}</li>;
+                })}
+              </ul>
+            </label>
             <div className="input-group">
-              <input ref={refIngridientInput} type="text" className="form-control" placeholder="500 gram kıyma" id="ingredients" name="ingredients" onChange={(e)=>{
-                 setIngredient(e.target.value);
-              }} />
-              <button className="btn text-white" onClick={handleAddIngredients} style={{ backgroundColor: mainColor }}>+</button>
-             </div>
+              <input
+                ref={refIngridientInput}
+                type="text"
+                className="form-control"
+                placeholder="500 gram kıyma"
+                id="ingredients"
+                name="ingredients"
+                onChange={(e) => {
+                  setIngredient(e.target.value);
+                }}
+              />
+              <button
+                className="btn text-white"
+                onClick={handleAddIngredients}
+                style={{ backgroundColor: mainColor }}
+              >
+                +
+              </button>
+            </div>
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <label htmlFor="preparation" className="form-label">
               Food preparation : {preperation}
             </label>
             <textarea
-              className="form-control myTextarea"
+              className="form-control myTextarea mt-2"
               onChange={(e) => {
                 setPreperation(e.target.value);
               }}
@@ -118,12 +138,12 @@ const Create = () => {
               id="preparation"
             ></textarea>
           </div>
-          <div className="mb-3">
+          <div className="mb-4">
             <label htmlFor="picture" className="form-label">
               Picture : {picture}
             </label>
             <input
-              className="form-control"
+              className="form-control mt-2"
               onChange={(e) => {
                 setPicture(e.target.value);
               }}
@@ -133,8 +153,8 @@ const Create = () => {
               id="picture"
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="url" className="form-label">
+          <div className="mb-4">
+            <label htmlFor="url" className="form-label mt-2">
               Url : {url}
             </label>
             <input
@@ -149,8 +169,13 @@ const Create = () => {
             />
           </div>
 
-         <button type="submit" className="btn w-100 text-white" style={{ backgroundColor: mainColor }}>Save</button>
-
+          <button
+            type="submit"
+            className="btn w-100 text-white"
+            style={{ backgroundColor: mainColor }}
+          >
+            Save
+          </button>
         </form>
       </div>
     </div>
